@@ -1,9 +1,6 @@
-# jore4-frontend
+# jore4-maplibre-experiment
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-Server-side rendering of Next.js is disabled as in this project it does not offer benefits wich could justify added complexity.
-
-Next.js was still chosen over `create-react-app` as project template as it offers better tooling, better developer experience, much faster live reloads and better support for future needs.
+This repository is based on [HSLdevcom/jore4-ui](https://github.com/HSLdevcom/jore4-ui). The purpose of this repository is to have playground where OpenLayers map libraries can be experimented.
 
 ## Getting Started
 
@@ -55,16 +52,3 @@ If you use VSCode, following plugins are recommended:
 It is also recommended to enable the [organize imports](https://code.visualstudio.com/docs/languages/typescript#_organize-imports) feature so that the imports will be ordered as the linter wants automatically.
 Non-VSCode users can sort imports e.g. by running `yarn lint --fix` on command line.
 (Probably there are also ways to configure other IDE's to order imports automatically or a way to make them run the linter with `--fix` flag automatically when code file is saved.)
-
-## Docker image
-
-Docker image can be tested locally like this:
-
-```bash
-# optional: build builder image to support caching, so that you don't have to e.g. run yarn install from scratch every time even if dependencies have stayed the same
-docker build --cache-from=jore4-ui:temp-builder --target build -t jore4-ui:temp-builder .
-# build docker image and utilize cache from previous step if available
-docker build -t jore4-ui:temp --cache-from=jore4-ui:temp-builder --cache-from=jore4-ui:temp .
-# serve image in port 8080
-docker run -p 8080:80 jore4-ui:temp
-```
