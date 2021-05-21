@@ -1,0 +1,11 @@
+{
+  "languages": {
+    "fi-FI": "Suomi",
+    "en-US": "Englanti"
+  },
+  "routes": {
+    "root": "Etusivu",
+    "example": "Esimerkkisivu"
+  },
+  "version": "Versio: {{ version }}"
+}
