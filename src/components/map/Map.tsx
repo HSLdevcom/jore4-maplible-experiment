@@ -1,6 +1,13 @@
 import produce from 'immer';
 import React, { FunctionComponent, useCallback, useState } from 'react';
-import MapGL, { MapEvent, Marker } from 'react-map-gl';
+import MapGL, {
+  FullscreenControl,
+  GeolocateControl,
+  MapEvent,
+  Marker,
+  NavigationControl,
+  ScaleControl,
+} from 'react-map-gl';
 import { mapLngLatToPoint, Point } from '../../utils';
 import { Pin } from './Pin';
 
@@ -34,6 +41,30 @@ export const Map: FunctionComponent<Props> = ({ className }) => {
     [markers],
   );
 
+  const geolocateStyle = {
+    top: 0,
+    left: 0,
+    padding: '10px',
+  };
+
+  const fullscreenControlStyle = {
+    top: 36,
+    left: 0,
+    padding: '10px',
+  };
+
+  const navStyle = {
+    top: 72,
+    left: 0,
+    padding: '10px',
+  };
+
+  const scaleControlStyle = {
+    bottom: 36,
+    left: 0,
+    padding: '10px',
+  };
+
   return (
     <MapGL
       // eslint-disable-next-line react/jsx-props-no-spreading
@@ -61,6 +92,10 @@ export const Map: FunctionComponent<Props> = ({ className }) => {
           <Pin size={20} />
         </Marker>
       ))}
+      <GeolocateControl style={geolocateStyle} />
+      <FullscreenControl style={fullscreenControlStyle} />
+      <NavigationControl style={navStyle} />
+      <ScaleControl style={scaleControlStyle} />
     </MapGL>
   );
 };
