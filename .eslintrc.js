@@ -39,6 +39,11 @@ module.exports = {
     'import/no-default-export': 'error', // default exports are bad, prefer named exports
     '@typescript-eslint/explicit-module-boundary-types': 'off', // don't require explicit return values for functions as usually TS can infer those
     'no-shadow': 'off', // this might report false positives with TS: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-shadow.md#how-to-use
+    'no-param-reassign': [
+      'error',
+      // ignore 'draft' as its convention to use that name with immer: https://immerjs.github.io/immer/
+      { props: true, ignorePropertyModificationsFor: ['draft'] },
+    ],
     '@typescript-eslint/no-shadow': ['error'],
     'react/prop-types': 'off', // not needed with TypeScript as it checks type compatability already on compile time based
     'react/jsx-filename-extension': [
