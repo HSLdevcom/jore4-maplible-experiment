@@ -11,14 +11,18 @@ const pinStyle = {
 
 interface Props {
   size: number;
+  // eslint-disable-next-line react/require-default-props
+  onClick?: () => void;
 }
 
-const PinComponent = ({ size = 20 }: Props): JSX.Element => {
+const PinComponent = ({ size = 20, onClick }: Props): JSX.Element => {
   return (
-    <svg height={size} viewBox="0 0 24 24" style={pinStyle}>
+    <svg height={size} viewBox="0 0 24 24" style={pinStyle} onClick={onClick}>
       <path d={ICON} />
     </svg>
   );
 };
 
+// Official examples used React.memo, see e.g.
+// https://github.com/visgl/react-map-gl/blob/6.1-release/examples/controls/src/pins.js
 export const Pin = React.memo(PinComponent);
