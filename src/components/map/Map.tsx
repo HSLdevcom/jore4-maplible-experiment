@@ -11,6 +11,7 @@ import MapGL, {
 } from 'react-map-gl';
 import { mapLngLatToPoint, Point } from '../../utils';
 import { Pin } from './Pin';
+import { RouteLinks } from './RouteLinks';
 
 interface Props {
   className?: string;
@@ -142,6 +143,7 @@ export const Map: FunctionComponent<Props> = ({ className }) => {
           </button>
         </Popup>
       )}
+      <RouteLinks />
       <GeolocateControl style={geolocateStyle} />
       <FullscreenControl style={fullscreenControlStyle} />
       <NavigationControl style={navStyle} />
